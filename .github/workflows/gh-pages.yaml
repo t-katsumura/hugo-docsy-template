@@ -18,8 +18,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Install Hugo CLI and Dart Sass
-        run: make install-tools
       - name: Checkout
         uses: actions/checkout@v4
         with:
@@ -28,6 +26,8 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
+      - name: Install Hugo CLI and Dart Sass
+        run: make install-tools
       - name: Install Node.js dependencies
         run: make install-npm-packages
       - name: Build with Hugo
