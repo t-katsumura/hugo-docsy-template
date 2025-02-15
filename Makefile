@@ -2,12 +2,11 @@
 # See the package.json of the docsy to determine hugo version.
 # https://github.com/google/docsy/blob/main/package.json
 HUGO_VERSION:=0.136.2
-HUGO_ARCH:=$(shell uname -m)
 DOCSY_VERSION:=v0.11.0
 
 .PHONY: install-tools
 install-tools:
-	wget -O hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_linux-$(HUGO_ARCH).deb
+	wget -O hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_linux-amd64.deb
 	sudo dpkg -i hugo.deb
 	sudo snap install dart-sass
 
