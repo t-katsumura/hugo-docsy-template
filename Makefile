@@ -14,7 +14,7 @@ install-tools:
 .PHONY: install-npm-packages
 install-npm-packages:
 	cd themes/docsy/
-  git fetch --tags
+	git fetch --tags
 	git checkout tags/$(DOCSY_VERSION)
 	npm install
 	# Install required https://www.docsy.dev/docs/get-started/docsy-as-module/installation-prerequisites/.
