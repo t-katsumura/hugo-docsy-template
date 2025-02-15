@@ -5,10 +5,11 @@ HUGO_ARCH:=$(shell uname -m)
 DOCSY_VERSION:=v0.11.0
 
 
-.PHONY: install-hugo
-install-hugo:
+.PHONY: install-tools
+install-tools:
 	wget -O hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_linux-$(HUGO_ARCH).deb \
 	sudo dpkg -i hugo.deb
+	sudo snap install dart-sass
 
 .PHONY: npm-install
 npm-install:
