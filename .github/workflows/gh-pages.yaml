@@ -43,6 +43,7 @@ jobs:
         run: |
           pwd
           git branch
+          git fetch --tags
           git checkout v0.11.0
           npm install
           npm install -g autoprefixer
