@@ -44,7 +44,7 @@ jobs:
           pwd
           git branch
           git fetch --tags
-          git checkout v0.11.0
+          git checkout tags/v0.11.0
           npm install
           npm install -g autoprefixer
           npm install -g postcss-cli
