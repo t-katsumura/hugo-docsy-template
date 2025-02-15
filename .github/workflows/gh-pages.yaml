@@ -37,13 +37,17 @@ jobs:
         run: sudo snap install dart-sass
       - name: Install Node.js dependencies
         run: |
-          npm install -g autoprefixer
-          npm install -g postcss-cli
-          npm install -g postcss
           cd themes/docsy/
           git fetch --tags
           git checkout tags/v${DOCSY_VERSION}
           npm install
+          npm install --save-dev autoprefixer
+          npm install --save-dev postcss-cli
+          npm install --save-dev postcss
+      - run: |
+          npm install --global autoprefixer
+          npm install --global postcss-cli
+          npm install --global postcss
       - name: Build with Hugo
         env:
           HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
