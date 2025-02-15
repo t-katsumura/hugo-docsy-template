@@ -1,9 +1,9 @@
 
-
-HUGO_VERSION:=v0.125.7
+# See the package.json of the docsy to determine hugo version.
+# https://github.com/google/docsy/blob/main/package.json
+HUGO_VERSION:=0.136.2
 HUGO_ARCH:=$(shell uname -m)
 DOCSY_VERSION:=v0.11.0
-
 
 .PHONY: install-tools
 install-tools:
@@ -11,9 +11,10 @@ install-tools:
 	sudo dpkg -i hugo.deb
 	sudo snap install dart-sass
 
-.PHONY: npm-install
-npm-install:
+.PHONY: install-npm-packages
+install-npm-packages:
 	cd themes/docsy/
+  git fetch --tags
 	git checkout tags/$(DOCSY_VERSION)
 	npm install
 	# Install required https://www.docsy.dev/docs/get-started/docsy-as-module/installation-prerequisites/.
