@@ -1,19 +1,14 @@
 
 
 HUGO_VERSION:=v0.125.7
+HUGO_ARCH:=$(shell uname -m)
 DOCSY_VERSION:=v0.11.0
 
-# 
-# Usage:
-#   make setup
-.PHONY: setup
-setup:
-	# Install Hugo. https://gohugo.io/installation/linux/
-	go install github.com/gohugoio/hugo@$(HUGO_VERSION)
-	# Install docsy theme.
-	# See https://www.docsy.dev/docs/get-started/other-options/
-	git submodule add https://github.com/google/docsy.git themes/docsy
-	echo "theme = 'docsy'" >> hugo.toml
+
+.PHONY: install-hugo
+install-hugo:
+	wget -O hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_linux-$(HUGO_ARCH).deb \
+	sudo dpkg -i hugo.deb
 
 .PHONY: npm-install
 npm-install:
